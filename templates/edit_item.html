@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="header">
+    <h2>Edit Item</h2>
+</div>
+
+<div class="container card">
+
+    {% if form.instance.image %}
+        <img src="{{ form.instance.image.url }}"
+             style="max-width:200px; border-radius:8px; margin-bottom:15px;">
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+
+</div>
+{% endblock %}
